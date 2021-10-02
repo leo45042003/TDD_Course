@@ -1,0 +1,13 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5e7ba00c_002Db7d5_002D48f0_002Da9a4_002Df0e3f94f5ea0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;BudgetServiceTests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hsujimmy\work\TDD\BudgetService\BudgetServiceTests" Presentation="&amp;lt;BudgetServiceTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8a8dce5d_002D14a9_002D498c_002D8fd4_002Dfbae901ed30b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;BudgetServiceTests&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\hsujimmy\work\TDD\BudgetService\BudgetServiceTests" Presentation="&amp;lt;BudgetServiceTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e2f3ba39_002Dca5b_002D45d7_002Dacef_002D029f1f83d11f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="InvalidDate_ReturnZero" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::5E00E1F3-24BF-4858-A704-63FBB651C0D5::net5.0::BudgetService.UnitTest1.InvalidDate_ReturnZero&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5E00E1F3-24BF-4858-A704-63FBB651C0D5::net5.0::BudgetService.UnitTest1.QueryMonth_ReturnMonthData&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
