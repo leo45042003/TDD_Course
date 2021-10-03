@@ -6,7 +6,7 @@ using Xunit;
 
 namespace BudgetService
 {
-    public class UnitTest1
+    public class BudgetServiceTests
     {
         private Mock<IBudgetRepo> MockIBudgetRepo { get; set; } = new Mock<IBudgetRepo>();
         
@@ -89,12 +89,12 @@ namespace BudgetService
                     new Budget { YearMonth = "202111", Amount = 30 }
                 });
 
-            var startDate = new DateTime(2021, 9, 1);
-            var endDate = new DateTime(2021, 11, 4);
+            var startDate = new DateTime(2021, 9, 2);
+            var endDate = new DateTime(2021, 11, 1);
 
             var result = Query(startDate, endDate);
 
-            result.Should().Be(300+3100+4);
+            result.Should().Be(290+3100+1);
         }
 
         private double Query(DateTime startDate, DateTime endDate)

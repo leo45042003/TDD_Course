@@ -3,9 +3,6 @@ using System.Linq;
 
 namespace BudgetService
 {
-    using System.Collections.Generic;
-
-
     public class BudgetService
     {
         public IBudgetRepo BudgetRepo { get; set; }
@@ -17,41 +14,71 @@ namespace BudgetService
 
         public double Query(DateTime start, DateTime end)
         {
-            var comp = DateTime.Compare(start, end);
-            if (comp > 0)
+            if (start > end)
             {
                 return 0;
             }
-            else
+
+            if (start.Year == end.Year && start.Month == end.Month)
             {
-                double amount = 0;
-                var currentDate = new DateTime(start.Year, start.Month + 1, 1);
-                while (currentDate < end.AddMonths(-1))
-                {
-                    amount += BudgetRepo.GetAll().Where(n => n.YearMonth == currentDate.ToString($"yyyyMM"))
-                        .Select(n => n.Amount).FirstOrDefault();
-                    currentDate = currentDate.AddMonths(1);
-                }
-                
-                if (start.Year == end.Year && start.Month == end.Month)
-                {
-                   var alldays= DateTime.DaysInMonth(start.Year, start.Month);
-                   
-                    return BudgetRepo.GetAll().Where(n => n.YearMonth == start.ToString("yyyyMM")).Select(n => n.Amount).FirstOrDefault()* (double)((end.Day-start.Day+1)/(double)alldays);
-                }
-                else
-                {
-                    
-                  amount+= BudgetRepo.GetAll().Where(n => n.YearMonth == start.ToString("yyyyMM")).Select(n => n.Amount).FirstOrDefault()* (double)((DateTime.DaysInMonth(start.Year,start.Month)-start.Day+1)/(double)DateTime.DaysInMonth(start.Year, start.Month));
-                  amount+= BudgetRepo.GetAll().Where(n => n.YearMonth == end.ToString("yyyyMM")).Select(n => n.Amount).FirstOrDefault()* (double)((end.Day)/(double)DateTime.DaysInMonth(end.Year, end.Month));
-                  return amount;
-                }
+                return GetBudgetOfTheMonth(start);
             }
-            
 
-            
+            double amount = 0;
+            amount += GetTheFirstMonthBudget(start);
+            amount += GetTheMiddleMonthBudget(start, end);
+            amount += GetTheLastMonthBudget(end);
 
-            return 0;
+            return amount;
+        }
+
+        private double GetTheFirstMonthBudget(DateTime start) 
+        {
+            return GetBudgetInTheSameMonthFromStart(start);
+        }
+
+        private double GetTheMiddleMonthBudget(DateTime start, DateTime end)
+        {
+            double amount = 0;
+            var currentDate = new DateTime(start.Year, start.Month + 1, 1);
+            while (currentDate.Month < end.Month)
+            {
+                amount += GetBudgetInTheSameMonthFromStartToEnd(new DateTime(start.Year, start.Month, 1), new DateTime(start.Year, start.Month, DateTime.DaysInMonth(start.Year, start.Month)));
+                currentDate = currentDate.AddMonths(1);
+            }
+
+            return amount;
+        }
+
+        private double GetTheLastMonthBudget(DateTime end)
+        {
+            return GetBudgetInTheSameMonthToEnd(end);
+        }
+
+        private double GetBudgetInTheSameMonthFromStart(DateTime start) 
+        {
+            var endOfTheMonth = new DateTime(start.Year, start.Month, DateTime.DaysInMonth(start.Year, start.Month));
+            return GetBudgetInTheSameMonthFromStartToEnd(start, endOfTheMonth);
+        }
+
+        private double GetBudgetInTheSameMonthToEnd(DateTime end)
+        {
+            var startOfTheMonth = new DateTime(end.Year, end.Month, 1);
+            return GetBudgetInTheSameMonthFromStartToEnd(startOfTheMonth, end);
+        }
+
+        private double GetBudgetInTheSameMonthFromStartToEnd(DateTime start, DateTime end) 
+        {
+            double monthBudget = GetBudgetOfTheMonth(start);
+            var days = end.Day - start.Day + 1;
+            var daysInMonth = DateTime.DaysInMonth(start.Year, start.Month);
+
+            return monthBudget * days / daysInMonth;
+        }
+
+        private double GetBudgetOfTheMonth(DateTime date)
+        {
+            return BudgetRepo.GetAll().Where(n => n.YearMonth == date.ToString("yyyyMM")).Select(n => n.Amount).FirstOrDefault();
         }
     }
 }

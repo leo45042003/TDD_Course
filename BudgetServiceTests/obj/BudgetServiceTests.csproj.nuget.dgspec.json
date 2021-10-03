@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hsujimmy\\work\\TDD\\BudgetService\\BudgetServiceTests\\BudgetServiceTests.csproj": {}
+    "C:\\Users\\LeoFang\\Source\\Repos\\TDD_Course\\BudgetServiceTests\\BudgetServiceTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hsujimmy\\work\\TDD\\BudgetService\\BudgetServiceTests\\BudgetServiceTests.csproj": {
+    "C:\\Users\\LeoFang\\Source\\Repos\\TDD_Course\\BudgetServiceTests\\BudgetServiceTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hsujimmy\\work\\TDD\\BudgetService\\BudgetServiceTests\\BudgetServiceTests.csproj",
+        "projectUniqueName": "C:\\Users\\LeoFang\\Source\\Repos\\TDD_Course\\BudgetServiceTests\\BudgetServiceTests.csproj",
         "projectName": "BudgetServiceTests",
-        "projectPath": "C:\\Users\\hsujimmy\\work\\TDD\\BudgetService\\BudgetServiceTests\\BudgetServiceTests.csproj",
-        "packagesPath": "C:\\Users\\hsujimmy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hsujimmy\\work\\TDD\\BudgetService\\BudgetServiceTests\\obj\\",
+        "projectPath": "C:\\Users\\LeoFang\\Source\\Repos\\TDD_Course\\BudgetServiceTests\\BudgetServiceTests.csproj",
+        "packagesPath": "C:\\Users\\LeoFang\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LeoFang\\Source\\Repos\\TDD_Course\\BudgetServiceTests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\hsujimmy\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\LeoFang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\hsujimmy\\.dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
