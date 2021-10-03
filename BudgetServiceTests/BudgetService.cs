@@ -25,19 +25,19 @@ namespace BudgetService
             }
 
             double amount = 0;
-            amount += GetTheFirstMonthBudget(start);
-            amount += GetTheMiddleMonthBudget(start, end);
-            amount += GetTheLastMonthBudget(end);
+            amount += GetBudgetOfTheFirstMonth(start);
+            amount += GetBudgetOfTheMiddleMonth(start, end);
+            amount += GetBudgetOfTheLastMonth(end);
 
             return amount;
         }
 
-        private double GetTheFirstMonthBudget(DateTime start) 
+        private double GetBudgetOfTheFirstMonth(DateTime start) 
         {
             return GetBudgetInTheSameMonthFromStart(start);
         }
 
-        private double GetTheMiddleMonthBudget(DateTime start, DateTime end)
+        private double GetBudgetOfTheMiddleMonth(DateTime start, DateTime end)
         {
             double amount = 0;
             var currentDate = new DateTime(start.Year, start.Month + 1, 1);
@@ -50,7 +50,7 @@ namespace BudgetService
             return amount;
         }
 
-        private double GetTheLastMonthBudget(DateTime end)
+        private double GetBudgetOfTheLastMonth(DateTime end)
         {
             return GetBudgetInTheSameMonthToEnd(end);
         }
